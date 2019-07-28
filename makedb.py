@@ -65,11 +65,11 @@ def main():
                 else:
                     sess.add(product)
 
-            try:
-                sess.commit()
-            except SQLAlchemyError as e:
-                print('ERROR:', e, file=sys.stderr)
-                sess.rollback()
+        try:
+            sess.commit()
+        except SQLAlchemyError as e:
+            print('ERROR:', e, file=sys.stderr)
+            sess.rollback()
 
         print('Done')
 

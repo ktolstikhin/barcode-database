@@ -7,11 +7,8 @@ import csv
 import sys
 from argparse import ArgumentParser
 
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.exc import SQLAlchemyError
-
-from models import ModelBase, Product
+from models import Product
+from models.base import session, SQLAlchemyError
 
 
 def get_args():
@@ -23,14 +20,6 @@ def get_args():
                         help='a path to output sqlite db file')
 
     return parser.parse_args()
-
-
-def session(filename):
-    engine = create_engine('sqlite:///{}'.format(filename))
-    ModelBase.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)
-
-    return Session()
 
 
 def main():

@@ -34,8 +34,7 @@ def main():
             print('WARNING: Skip file', fname)
             continue
 
-        print('[{i}/{n}] Parse {f} ... '.format(i=i, n=n_files, f=fname),
-              flush=True, end='')
+        print(f'[{i}/{n_files}] Parse {fname} ... ', flush=True, end='')
 
         with open(fname) as csv_file:
             reader = csv.reader(csv_file,

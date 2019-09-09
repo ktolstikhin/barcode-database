@@ -13,6 +13,7 @@ class Product(ModelBase):
     brand = Column(String, nullable=False)
 
     def __repr__(self):
-       return '<Product(code="{c}", name="{n}", brand="{b}")>'.format(
-               c=self.code, n=self.name, b=self.brand)
+       return (f'<Product(code="{self.code}", '
+                        f'name="{self.name}", '
+                        f'brand="{self.brand}")>')
 

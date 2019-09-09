@@ -8,7 +8,7 @@ ModelBase = declarative_base()
 
 
 def session(filename):
-    engine = create_engine('sqlite:///{}'.format(filename))
+    engine = create_engine(f'sqlite:///{filename}')
     ModelBase.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
 

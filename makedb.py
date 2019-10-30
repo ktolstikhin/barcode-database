@@ -40,6 +40,8 @@ def main():
             reader = csv.reader(csv_file,
                                 delimiter='\t',
                                 quoting=csv.QUOTE_NONE)
+            # Drop headers:
+            next(reader, None)
 
             for row in reader:
 
